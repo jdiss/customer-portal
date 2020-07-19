@@ -1,10 +1,17 @@
 import { createGlobalStyle } from "styled-components";
+import Nunito from "./assets/fonts/Nunito-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
+        @font-face {
+            font-family: "Nunito";
+            src: local("Nunito"),
+            url(${Nunito}) format("truetype");
+        }
+
         body {
           margin: 0;
           font-size: 16px;
-          font-family: sans-serif;
+          font-family: Nunito;
           background-color:#F9F9F9;
         }
         * {
@@ -14,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
           
         }
         *:focus {outline:none}
+
         #root{
           width:100vw;
           height:100vh;
