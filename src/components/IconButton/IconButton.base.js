@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BUTTON_TYPE } from "@erm/utils/constant";
 
 export const Button = styled.button`
   display: grid;
@@ -9,13 +10,28 @@ export const Button = styled.button`
   border-radius: 60px;
   place-items: center;
   cursor: pointer;
-  background-color: var(--primary-color);
+  background-color: var(
+    ${({ type = BUTTON_TYPE.PRIMARY }) =>
+      type === BUTTON_TYPE.PRIMARY ? "--primary-color" : "--secondary-color"}
+  );
+
+  & span {
+    color: #fff;
+  }
+
+  &:hover span {
+    color: var(
+      ${({ type = BUTTON_TYPE.PRIMARY }) =>
+        type === BUTTON_TYPE.PRIMARY
+          ? "--primary-color-hover-text"
+          : "--secondary-color-hover-text"}
+    );
+  }
 
   & span:nth-of-type(1) {
     grid-column: 2;
     place-self: center;
     font-size: 0.9em;
-    color: #fff;
   }
   & span:nth-of-type(2) {
     grid-column: 3;
@@ -23,10 +39,14 @@ export const Button = styled.button`
     border: 0;
     padding: 0.5rem;
     font-size: 0.9em;
-    color: #fff;
   }
 
   &:hover {
-    background-color: #c7482d;
+    background-color: var(
+      ${({ type = BUTTON_TYPE.PRIMARY }) =>
+        type === BUTTON_TYPE.PRIMARY
+          ? "--primary-color-hover"
+          : "--secondary-color-hover"}
+    );
   }
 `;

@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faQuestion,
   faUsers,
+  faUserEdit,
+  faSave,
+  faTimesCircle,
+  faTimes,
   faThLarge,
   faBars,
   faSearch,
@@ -17,17 +21,35 @@ const Icon = ({ type }) => {
   const getIcon = () => {
     let icon = faQuestion;
     switch (type) {
-      case ICON_TYPE.USER_ADD:
+      case ICON_TYPE.ADD_USER:
         icon = faUserPlus;
         break;
-      case ICON_TYPE.USER_EDIT:
-        icon = faUsers;
+      case ICON_TYPE.EDIT_USER:
+        icon = faUserEdit;
         break;
       case ICON_TYPE.DELETE:
         icon = faTrashAlt;
         break;
       case ICON_TYPE.USER:
         icon = faUsers;
+        break;
+      case ICON_TYPE.UPDATE:
+        icon = faSave;
+        break;
+      case ICON_TYPE.CANCEL:
+        icon = faTimesCircle;
+        break;
+      case ICON_TYPE.BOX:
+        icon = faThLarge;
+        break;
+      case ICON_TYPE.LIST:
+        icon = faBars;
+        break;
+      case ICON_TYPE.CLOSE:
+        icon = faTimes;
+        break;
+      case ICON_TYPE.SEARCH:
+        icon = faSearch;
         break;
       default:
         icon = faQuestion;

@@ -12,6 +12,12 @@ const GlobalStyle = createGlobalStyle`
             --primary-font-size: 16px;
             --bg-color: #F9F9F9;
             --primary-color: #192e58;
+            --secondary-color: #F05669;
+            --primary-color-hover: #fff;
+            --secondary-color-hover: #fff;
+            --primary-color-hover-text: #000;
+            --secondary-color-hover-text: #000;
+            --text-light-color: #fff;
             --text-color: #111111;
             --border-color: #DDDDDD;
             --main-font-family: Nunito;
