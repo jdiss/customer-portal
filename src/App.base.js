@@ -88,15 +88,15 @@ export const ListHeader = styled.div``;
 
 export const RowList = styled.div``;
 
-export const Row = styled.div``;
-
-export const Button = styled.div`
+export const Button = styled.button`
   display: grid;
-  grid-template: 1fr / 16px auto 1fr 16px;
+  grid-template: 1fr / 16px auto auto 16px;
   border: 1px solid #ccc;
   border-radius: 60px;
   place-items: center;
   cursor: pointer;
+  background-color: #192e58;
+  color: #fff;
 
   & svg {
     grid-column: 2;

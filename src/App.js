@@ -6,6 +6,7 @@ import GlobalStyle, {
   Filters,
   SearchField,
   Button,
+  Item,
 } from "./app.base";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,7 +16,7 @@ import {
   faSearch,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { FieldInput } from "@erm/components";
+import { FieldInput, RowItem } from "@erm/components";
 
 export class App extends Component {
   render() {
@@ -40,10 +41,11 @@ export class App extends Component {
                 />
               </SearchField>
               <Button>
-                <FontAwesomeIcon icon={faUserPlus} />{" "}
+                <FontAwesomeIcon icon={faUserPlus} />
                 <span>ADD NEW CUSTOMER</span>
               </Button>
             </Filters>
+            <RowItem />
           </Main>
           {/* <div> */}
           {/* <div> */}
