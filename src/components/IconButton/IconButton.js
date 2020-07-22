@@ -5,7 +5,7 @@ import { Button } from "./IconButton.base";
 
 const IconButton = ({ icon }) => {
   return (
-    <Button type={type}>
+    <Button>
       <Icon type={icon} />
     </Button>
   );

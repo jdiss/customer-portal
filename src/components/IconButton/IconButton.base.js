@@ -3,43 +3,20 @@ import { BUTTON_TYPE } from "@erm/utils/constant";
 
 export const Button = styled.button`
   display: grid;
-  height: 80px;
-  width: 80px;
-  grid-template: auto / 16px auto auto 16px;
-  border: 1px solid #ccc;
-  border-radius: 60px;
+  height: 40px;
+  width: 40px;
   place-items: center;
   cursor: pointer;
-  background-color: var(
-    ${({ type = BUTTON_TYPE.PRIMARY }) =>
-      type === BUTTON_TYPE.PRIMARY ? "--primary-color" : "--secondary-color"}
-  );
+  border: none;
+  background-color: transparent;
 
   & span {
-    color: #fff;
+    color: var(--shade-color);
+    place-self: center;
+    font-size: 1.75rem;
   }
 
   &:hover span {
-    color: var(
-      ${({ type = BUTTON_TYPE.PRIMARY }) =>
-        type === BUTTON_TYPE.PRIMARY
-          ? "--primary-color-hover-text"
-          : "--secondary-color-hover-text"}
-    );
-  }
-
-  & > span:nth-of-type(1) {
-    grid-column: 2;
-    place-self: center;
-    font-size: 0.9em;
-  }
-
-  &:hover {
-    background-color: var(
-      ${({ type = BUTTON_TYPE.PRIMARY }) =>
-        type === BUTTON_TYPE.PRIMARY
-          ? "--primary-color-hover"
-          : "--secondary-color-hover"}
-    );
+    color: var(--primary-color-hover-text);
   }
 `;

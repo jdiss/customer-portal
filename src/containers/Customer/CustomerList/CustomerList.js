@@ -7,7 +7,7 @@ import {
   faSearch,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { RowItem, IconTextButton } from "@erm/components";
+import { RowItem, IconTextButton, IconButton } from "@erm/components";
 import { Filters, SearchField } from "./CustomerList.base";
 import { ICON_TYPE } from "@erm/utils/constant";
 
@@ -15,10 +15,10 @@ const CustomerList = () => {
   return (
     <div>
       <Filters>
-        <FontAwesomeIcon icon={faUsers} />
+        <IconButton icon={ICON_TYPE.USER} />
         <h2>Customer List</h2>
-        <FontAwesomeIcon icon={faThLarge} />
-        <FontAwesomeIcon icon={faBars} />
+        <IconButton icon={ICON_TYPE.BOX} />
+        <IconButton icon={ICON_TYPE.LIST} />
         <SearchField>
           <FontAwesomeIcon icon={faSearch} />
           <input
@@ -28,11 +28,11 @@ const CustomerList = () => {
             placeholder="Search..."
           />
         </SearchField>
+        <IconTextButton
+          caption="ADD NEW CUSTOMER"
+          icon={ICON_TYPE.ADD_USER}
+        ></IconTextButton>
       </Filters>
-      <IconTextButton
-        caption="ADD NEW CUSTOMER"
-        icon={ICON_TYPE.ADD_USER}
-      ></IconTextButton>
       <RowItem />
     </div>
   );
