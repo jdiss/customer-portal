@@ -11,18 +11,22 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: var(--primary-color);
 
-  & svg {
+  & span:nth-of-type(1) {
     grid-column: 2;
     place-self: center;
     font-size: 0.9em;
     color: #fff;
   }
-  & span {
+  & span:nth-of-type(2) {
     grid-column: 3;
     display: inline-block;
     border: 0;
     padding: 0.5rem;
     font-size: 0.9em;
     color: #fff;
+  }
+
+  &:hover {
+    background-color: #c7482d;
   }
 `;

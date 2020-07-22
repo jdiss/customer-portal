@@ -13,6 +13,7 @@ export const Item = styled.div`
   grid-template-rows: 1fr;
   padding: 0.5em;
   margin: 1.5em;
+  align-items: center;
 
   & div {
     width: 72px;
