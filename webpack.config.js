@@ -64,7 +64,7 @@ module.exports = function (_env, argv) {
     resolve: {
       extensions: [".js", ".jsx"],
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        "@erm": path.resolve(__dirname, "./src"),
       },
     },
     plugins: [
