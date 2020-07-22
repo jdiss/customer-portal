@@ -1,0 +1,5 @@
+{
+  "name": "customer-list",
+  "private": true,
+  "main": "CustomerList.js"
+}

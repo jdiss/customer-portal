@@ -1,22 +1,6 @@
 import React, { Component } from "react";
-import GlobalStyle, {
-  Layout,
-  Header,
-  Main,
-  Filters,
-  SearchField,
-  Button,
-  Item,
-} from "./app.base";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUsers,
-  faThLarge,
-  faBars,
-  faSearch,
-  faUserPlus,
-} from "@fortawesome/free-solid-svg-icons";
-import { FieldInput, RowItem } from "@erm/components";
+import { CustomerList } from "@erm/containers";
+import GlobalStyle, { Layout, Header, Main } from "./app.base";
 
 export class App extends Component {
   render() {
@@ -26,26 +10,7 @@ export class App extends Component {
         <Layout>
           <Header></Header>
           <Main>
-            <Filters>
-              <FontAwesomeIcon icon={faUsers} />
-              <h2>Customer List</h2>
-              <FontAwesomeIcon icon={faThLarge} />
-              <FontAwesomeIcon icon={faBars} />
-              <SearchField>
-                <FontAwesomeIcon icon={faSearch} />
-                <input
-                  class="searchBox"
-                  type="search"
-                  name="search"
-                  placeholder="Search..."
-                />
-              </SearchField>
-              <Button>
-                <FontAwesomeIcon icon={faUserPlus} />
-                <span>ADD NEW CUSTOMER</span>
-              </Button>
-            </Filters>
-            <RowItem />
+            <CustomerList />
           </Main>
           {/* <div> */}
           {/* <div> */}
