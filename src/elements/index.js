@@ -1,1 +1,1 @@
-export { default as RowItemBase } from "./RowItemBase";
+export { default as ItemFrame } from "./ItemFrame";

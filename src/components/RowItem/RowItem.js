@@ -3,17 +3,13 @@ import { IconTextButton } from "@erm/components";
 import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
 import { Item, NameTag } from "./RowItem.base";
 
-const RowItem = () => {
+const RowItem = ({ tag, children, onEdit, onDelete }) => {
   return (
-    <Item col={6}>
+    <Item>
       <NameTag>
-        <span>JD</span>
+        <span>{tag}</span>
       </NameTag>
-      <span>#.1235</span>
-      <h2>Janaka Dissanayake</h2>
-      <span>14 July 1978</span>
-      <span>12 Oct 2020</span>
-      <span>12 Oct 2020</span>
+      {children}
       <IconTextButton
         caption="EDIT"
         icon={ICON_TYPE.EDIT_USER}

@@ -5,7 +5,7 @@ import {
   IconButton,
   SearchFieldInput,
 } from "@erm/components";
-import { FunctionBar } from "./CustomerList.base";
+import { FunctionBar, ListHeader } from "./CustomerList.base";
 import { ICON_TYPE } from "@erm/utils/constant";
 
 const CustomerList = () => {
@@ -22,7 +22,22 @@ const CustomerList = () => {
           icon={ICON_TYPE.ADD_USER}
         ></IconTextButton>
       </FunctionBar>
-      <RowItem />
+      <ListHeader>
+        <span>#.ID</span>
+        <span>Customer Name</span>
+        <span>Born in</span>
+        <span>Created on</span>
+        <span>Last edited on</span>
+      </ListHeader>
+      {[1, 2, 3, 4, 5].map((customer, index) => (
+        <RowItem tag={"JD"}>
+          <span>#.1235</span>
+          <h2>Janaka Dissanayake</h2>
+          <span>14 July 1978</span>
+          <span>12 Oct 2020</span>
+          <span>12 Oct 2020</span>
+        </RowItem>
+      ))}
     </div>
   );
 };

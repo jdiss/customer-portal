@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ItemFrame } from "@erm/elements";
 
 export const FunctionBar = styled.div`
   display: grid;
@@ -15,6 +16,24 @@ export const FunctionBar = styled.div`
   }
 `;
 
-export const ListHeader = styled.div``;
+export const ListHeader = styled(ItemFrame)`
+  margin: 2em 0 0.5em 0;
+
+  & > span:nth-of-type(1) {
+    grid-area: id;
+  }
+  & > span:nth-of-type(2) {
+    grid-area: name;
+  }
+  & > span:nth-of-type(3) {
+    grid-area: dob;
+  }
+  & > span:nth-of-type(4) {
+    grid-area: create;
+  }
+  & > span:nth-of-type(5) {
+    grid-area: update;
+  }
+`;
 
 export const RowList = styled.div``;

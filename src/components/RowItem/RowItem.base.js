@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { RowItemBase } from "../../elements";
+import { ItemFrame } from "@erm/elements";
 
-export const Item = styled(RowItemBase)`
+export const Item = styled(ItemFrame)`
   margin: 10px 0;
   width: 100%;
   border-radius: 60px;
