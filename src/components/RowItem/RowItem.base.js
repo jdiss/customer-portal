@@ -1,18 +1,12 @@
 import styled from "styled-components";
+import { RowItemBase } from "../../elements";
 
-export const Item = styled.div`
-  display: grid;
-  grid-gap: 5px;
+export const Item = styled(RowItemBase)`
   margin: 10px 0;
   width: 100%;
   border-radius: 60px;
   box-shadow: -10px 10px 20px 0 rgba(30, 30, 30, 0.05);
   background-color: #fff;
-  display: grid;
-  grid-template-columns: auto 0.75fr 2fr repeat(3, 1fr) auto auto 0.05fr;
-  grid-template-rows: 1fr;
-  padding: 0.5em;
-  place-items: center;
 
   & h2 {
     grid-column: 3;

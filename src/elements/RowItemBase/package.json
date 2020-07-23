@@ -1,0 +1,5 @@
+{
+  "name": "row-item-base",
+  "private": true,
+  "main": "RowItemBase.js"
+}
