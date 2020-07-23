@@ -72,6 +72,7 @@ export const Header = styled.div`
 export const Main = styled.div`
   grid-row: body;
   grid-column: main-start/main-end;
+  margin: 3rem 0;
 `;
 
 export default GlobalStyle;

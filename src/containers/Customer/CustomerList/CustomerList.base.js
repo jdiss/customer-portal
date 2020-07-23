@@ -3,10 +3,11 @@ import { ItemFrame } from "@erm/elements";
 
 export const FunctionBar = styled.div`
   display: grid;
-  grid-template: 1fr / auto 2fr 1fr repeat(3, auto);
+  grid-template: 1fr / auto 2fr 1fr repeat(3, auto) 0.05fr;
   width: 100%;
   color: #cccc;
   align-items: center;
+  grid-column-gap: 1.5em;
 
   & h2 {
     color: #000;
