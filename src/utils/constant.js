@@ -3,7 +3,7 @@ export const ICON_TYPE = {
   EDIT_USER: 2,
   DELETE: 3,
   ADD_USER: 4,
-  UPDATE: 5,
+  SAVE: 5,
   CANCEL: 6,
   BOX: 7,
   LIST: 8,

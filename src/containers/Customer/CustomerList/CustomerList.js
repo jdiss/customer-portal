@@ -8,11 +8,18 @@ import {
 } from "@erm/components";
 import { useModal } from "@erm/hooks";
 import { FunctionBar, ListHeader } from "./CustomerList.base";
+import { CustomerForm } from "@erm/containers";
 import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
+import { getCustomers } from "@erm/services/customerService";
 
 const CustomerList = () => {
   const [model, setModel] = React.useState("ADD");
+  const [customers, setCustomers] = React.useState([]);
   const { isShowing, toggle } = useModal();
+
+  React.useEffect(() => {
+    setCustomers(getCustomers());
+  }, []);
 
   const onAddCustomerClick = () => {
     setModel({ action: "ADD", customer: null });
@@ -47,16 +54,7 @@ const CustomerList = () => {
         <span>Created on</span>
         <span>Last edited on</span>
       </ListHeader>
-      {[
-        {
-          id: "1235",
-          firstName: "Janaka",
-          lastName: "Dissanayake",
-          dob: "14/07/1978",
-          created: "20/02/2020",
-          edited: "20/02/2020",
-        },
-      ].map((customer, index) => (
+      {customers.map((customer, index) => (
         <RowItem tag={"JD"} key={index}>
           <span>#.{customer.id}</span>
           <h2>{`${customer.firstName} ${customer.lastName}`}</h2>
@@ -77,7 +75,7 @@ const CustomerList = () => {
         </RowItem>
       ))}
       <Modal isShowing={isShowing} hide={toggle}>
-        {model.action === "ADD" && <div>ADD</div>}
+        {model.action === "ADD" && <CustomerForm />}
         {model.action === "EDIT" && <div>{model.customer.id}</div>}
         {model.action === "DELETE" && <div>{model.customer.id}</div>}
       </Modal>

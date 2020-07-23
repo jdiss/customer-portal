@@ -1,0 +1,5 @@
+{
+  "name": "customer-form",
+  "private": true,
+  "main": "CustomerForm.js"
+}

@@ -21,7 +21,7 @@ export const ListHeader = styled(ItemFrame)`
   margin: 2em 0 0.5em 0;
 
   & > span {
-    color: var();
+    color: var(--dark-shade-color);
   }
 
   & > span:nth-of-type(1) {

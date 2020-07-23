@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
             --text-color: #111111;
             --border-color: #DDDDDD;
             --shade-color: #DDDDDD;
+            --dark-shade-color: #bbb7b7;
             --main-font-family: Nunito;
             @media (min-width: 700px) {
                 --spacing-multiplier: 1.5;

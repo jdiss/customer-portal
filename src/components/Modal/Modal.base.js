@@ -31,19 +31,10 @@ export const ModalContent = styled.div`
   border-radius: 30px;
   max-width: 500px;
   padding: 2rem;
-
-  & .header {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .modal-close-button {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    opacity: 0.3;
-    cursor: pointer;
-    border: none;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  & > div:nth-last-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
   }
 `;

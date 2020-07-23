@@ -12,12 +12,6 @@ export class App extends Component {
           <Main>
             <CustomerList />
           </Main>
-          {/* <div> */}
-          {/* <div> */}
-          {/* <FieldInput label="First name" /> */}
-          {/* <FieldInput label="First name" /> */}
-          {/* </div> */}
-          {/* </div> */}
         </Layout>
       </>
     );

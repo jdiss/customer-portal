@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Field = styled.div`
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   position: relative;
 
   & label {
@@ -13,6 +13,7 @@ export const Field = styled.div`
     transition: 0.2s ease-out;
     opacity: 0.5;
     will-change: top, font-size;
+    padding-left: 0.8em;
 
     &:hover {
       cursor: text;
@@ -20,22 +21,20 @@ export const Field = styled.div`
   }
 
   & input {
-    border: 1px solid #fff;
+    border: 1px solid var(--shade-color);
     font-size: 1.2rem;
     padding: 0.6rem;
-    padding-left: 0;
     background: transparent;
-
     transition: 0.2s;
     width: 100%;
-    border-radius: 0;
+    border-radius: 20px;
 
     &:focus {
       outline: none;
     }
 
     &:valid {
-      border-color: #444;
+      border-color: var(--shade-color);
     }
 
     &:focus + label,

@@ -1,15 +1,15 @@
 import React from "react";
 import { Field } from "./FieldInput.base";
 
-const FieldInput = ({ label }) => {
-  const [value, setValue] = React.useState("");
+const FieldInput = ({ label, input, onValueChange }) => {
+  const [value, setValue] = React.useState(input);
   return (
     <Field>
       <input
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
         type="text"
         name="lastName"
         id="lastName"
@@ -18,7 +18,7 @@ const FieldInput = ({ label }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <label for="lastName">Last name</label>
+      <label htmlFor="lastName">{label}</label>
     </Field>
   );
 };

@@ -33,7 +33,7 @@ const Icon = ({ type, size, color }) => {
       case ICON_TYPE.USER:
         icon = faUsers;
         break;
-      case ICON_TYPE.UPDATE:
+      case ICON_TYPE.SAVE:
         icon = faSave;
         break;
       case ICON_TYPE.CANCEL:
