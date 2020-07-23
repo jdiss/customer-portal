@@ -74,8 +74,8 @@ const CustomerList = () => {
           ></IconTextButton>
         </RowItem>
       ))}
-      <Modal isShowing={isShowing} hide={toggle}>
-        {model.action === "ADD" && <CustomerForm />}
+      <Modal isShowing={isShowing}>
+        {model.action === "ADD" && <CustomerForm onComplete={toggle} />}
         {model.action === "EDIT" && <div>{model.customer.id}</div>}
         {model.action === "DELETE" && <div>{model.customer.id}</div>}
       </Modal>

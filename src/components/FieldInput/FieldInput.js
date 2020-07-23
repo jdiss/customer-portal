@@ -1,8 +1,7 @@
 import React from "react";
 import { Field } from "./FieldInput.base";
 
-const FieldInput = ({ label, input, onValueChange }) => {
-  const [value, setValue] = React.useState(input);
+const FieldInput = ({ label, name, value = "", onValueChange }) => {
   return (
     <Field>
       <input
@@ -11,12 +10,12 @@ const FieldInput = ({ label, input, onValueChange }) => {
         autoCapitalize="off"
         spellCheck="false"
         type="text"
-        name="lastName"
-        id="lastName"
+        name={name}
+        id={name}
         className={value ? "hasInput" : ""}
         placeholder=" "
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onValueChange}
       />
       <label htmlFor="lastName">{label}</label>
     </Field>

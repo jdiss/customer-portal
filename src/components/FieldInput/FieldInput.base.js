@@ -6,7 +6,7 @@ export const Field = styled.div`
 
   & label {
     position: absolute;
-    top: 0.8rem;
+    top: 0.5rem;
     left: 0;
     display: block;
     font-size: 1rem;
@@ -22,12 +22,12 @@ export const Field = styled.div`
 
   & input {
     border: 1px solid var(--shade-color);
-    font-size: 1.2rem;
+    font-size: 1em;
     padding: 0.6rem;
     background: transparent;
     transition: 0.2s;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
 
     &:focus {
       outline: none;

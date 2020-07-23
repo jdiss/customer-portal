@@ -2,31 +2,71 @@ import React from "react";
 import { IconTextButton, FieldInput } from "@erm/components";
 import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
 import { CustomerFormWrapper } from "./CustomerForm.base";
-const CustomerForm = () => {
-  const onSaveClick = () => {};
-  const onCancelClick = () => {};
+const CustomerForm = ({ onComplete }) => {
+  const [form, setState] = React.useState({
+    firstName: "",
+    lastName: "",
+    day: "",
+    month: "",
+    year: "",
+  });
+
+  const onCustomerFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
+
+  const updateField = (e) => {
+    setState({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
-    <CustomerFormWrapper>
+    <CustomerFormWrapper onSubmit={onCustomerFormSubmit}>
       <h2>Add New Customer</h2>
-      <FieldInput label="First name" />
-      <FieldInput label="Last name" />
+      <FieldInput
+        label="First name"
+        name="firstName"
+        value={form.firstName}
+        onValueChange={updateField}
+      />
+      <FieldInput
+        label="Last name"
+        name="lastName"
+        value={form.lastName}
+        onValueChange={updateField}
+      />
       <div>
         <label>Born in</label>
-        <FieldInput label="DD" />
-        <FieldInput label="MM" />
-        <FieldInput label="YYYY" />
+        <FieldInput
+          label="DD"
+          name="day"
+          value={form.day}
+          onValueChange={updateField}
+        />
+        <FieldInput
+          label="MM"
+          name="month"
+          value={form.month}
+          onValueChange={updateField}
+        />
+        <FieldInput
+          label="YYYY"
+          name="year"
+          value={form.year}
+          onValueChange={updateField}
+        />
       </div>
       <div>
-        <IconTextButton
-          caption="SAVE"
-          icon={ICON_TYPE.SAVE}
-          onClick={onSaveClick}
-        ></IconTextButton>
+        <IconTextButton caption="SAVE" icon={ICON_TYPE.SAVE}></IconTextButton>
         <IconTextButton
           caption="CANCEL"
+          name="CANCEL"
           icon={ICON_TYPE.CANCEL}
           type={BUTTON_TYPE.SECONDARY}
-          onClick={onCancelClick}
+          onClick={onComplete}
         ></IconTextButton>
       </div>
     </CustomerFormWrapper>
