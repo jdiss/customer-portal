@@ -13,7 +13,7 @@ const SearchFieldInput = ({ label }) => {
         size={ICON_SIZE.LARGE}
       />
       <input
-        class="searchBox"
+        className="searchBox"
         type="search"
         name="search"
         placeholder="Search..."

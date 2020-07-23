@@ -12,7 +12,6 @@ export const Item = styled.div`
   grid-template-columns: auto 0.75fr 2fr repeat(3, 1fr) auto auto 0.05fr;
   grid-template-rows: 1fr;
   padding: 0.5em;
-  margin: 1.5em;
   place-items: center;
 
   & h2 {
