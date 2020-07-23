@@ -15,3 +15,14 @@ export const BUTTON_TYPE = {
   PRIMARY: 100,
   SECONDARY: 200,
 };
+
+export const ICON_SIZE = {
+  REGULAR: 100,
+  LARGE: 200,
+  X_LARGE: 300,
+};
+
+export const ICON_COLOR = {
+  LIGHT: 100,
+  SHADE: 200,
+};

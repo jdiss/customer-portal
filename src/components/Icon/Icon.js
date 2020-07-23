@@ -17,7 +17,7 @@ import {
 import { Frame } from "./Icon.base";
 import { ICON_TYPE } from "@erm/utils/constant";
 
-const Icon = ({ type }) => {
+const Icon = ({ type, size, color }) => {
   const getIcon = () => {
     let icon = faQuestion;
     switch (type) {
@@ -58,7 +58,7 @@ const Icon = ({ type }) => {
     return icon;
   };
   return (
-    <Frame>
+    <Frame color={color} size={size}>
       <FontAwesomeIcon icon={getIcon()} />
     </Frame>
   );

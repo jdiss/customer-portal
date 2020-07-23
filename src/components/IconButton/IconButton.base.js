@@ -11,9 +11,7 @@ export const Button = styled.button`
   background-color: transparent;
 
   & span {
-    color: var(--shade-color);
     place-self: center;
-    font-size: 1.75rem;
   }
 
   &:hover span {
