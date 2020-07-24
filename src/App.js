@@ -6,6 +6,7 @@ import GlobalStyle, { Layout, Header, Main } from "./app.base";
 import rootReducer from "./state/reducers";
 
 const store = createStore(rootReducer);
+console.log("STTTTTTT", store.getState());
 
 export class App extends Component {
   render() {

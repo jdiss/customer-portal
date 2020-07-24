@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   RowItem,
   IconTextButton,
@@ -18,21 +18,22 @@ const CustomerList = () => {
   //const [customers, setCustomers] = React.useState([]);
   const { isShowing, toggle } = useModal();
   const customers = useSelector((state) => state.customers);
+  const dispatch = useDispatch();
 
   // React.useEffect(() => {
   // setCustomers(getCustomers());
   // }, []);
 
   const onAddCustomerClick = () => {
-    setModel({ action: "ADD", customer: null });
+    dispatch({ type: "ADD" });
     toggle();
   };
   const onEditCustomerClick = (customer) => {
-    setModel({ action: "EDIT", customer: customer });
+    dispatch({ type: "EDIT" });
     toggle();
   };
   const onDeleteCustomerClick = (customer) => {
-    setModel({ action: "DELETE", customer: customer });
+    dispatch({ type: "DELETE" });
     toggle();
   };
   return (
@@ -77,9 +78,7 @@ const CustomerList = () => {
         </RowItem>
       ))}
       <Modal isShowing={isShowing}>
-        {model.action === "ADD" && <CustomerForm onComplete={toggle} />}
-        {model.action === "EDIT" && <div>{model.customer.id}</div>}
-        {model.action === "DELETE" && <div>{model.customer.id}</div>}
+        <CustomerForm onComplete={toggle} />
       </Modal>
     </div>
   );

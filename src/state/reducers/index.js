@@ -1,23 +1,31 @@
-const initState = {
-  customers: [
-    {
-      id: "1235",
-      firstName: "Janaka",
-      lastName: "Dissanayake",
-      dob: "14/07/1978",
-      created: "20/02/2020",
-      edited: "20/02/2020",
-    },
-  ],
-};
+import { combineReducers } from "redux";
 
-const customers = (state = initState, action) => {
+const customers = (state = [], action) => {
   switch (action.type) {
     case "ADD_CUSTOMER":
-      return { customers: [...state.customers, action.payload] };
+      return [...state, action.payload];
     default:
       return state;
   }
 };
 
-export default customers;
+const customerProcess = (
+  state = { process: { Add: true, edit: false, delete: false } },
+  action
+) => {
+  switch (action.type) {
+    case "ADD":
+      return { process: { Add: true, edit: false, delete: false } };
+    case "EDIT":
+      return { process: { Add: false, edit: true, delete: false } };
+    case "DELETE":
+      return { process: { Add: false, edit: false, delete: true } };
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  customers,
+  customerProcess,
+});

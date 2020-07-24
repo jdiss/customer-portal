@@ -1,3 +1,5 @@
+import { getCurrentDay, getRandomId } from "../utils/helpers";
+
 export const getCustomers = (firstName, lastName) => {
   return data.map((customer) => {
     if (firstName && customer.firstName === firstName) {
@@ -12,12 +14,12 @@ export const getCustomers = (firstName, lastName) => {
 
 export const addCustomer = (form) => {
   return {
-    id: "1235",
+    id: getRandomId(),
     firstName: form.firstName,
     lastName: form.lastName,
     dob: `${form.day}/${form.month}/${form.year}`,
-    created: Date(),
-    edited: Date(),
+    created: getCurrentDay(),
+    edited: getCurrentDay(),
   };
 };
 
