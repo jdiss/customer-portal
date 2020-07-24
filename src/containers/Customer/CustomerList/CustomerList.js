@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   RowItem,
   IconTextButton,
@@ -9,17 +10,18 @@ import {
 import { useModal } from "@erm/hooks";
 import { FunctionBar, ListHeader } from "./CustomerList.base";
 import { CustomerForm } from "@erm/containers";
-import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
+import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
 import { getCustomers } from "@erm/services/customerService";
 
 const CustomerList = () => {
   const [model, setModel] = React.useState("ADD");
-  const [customers, setCustomers] = React.useState([]);
+  //const [customers, setCustomers] = React.useState([]);
   const { isShowing, toggle } = useModal();
+  const customers = useSelector((state) => state.customers);
 
-  React.useEffect(() => {
-    setCustomers(getCustomers());
-  }, []);
+  // React.useEffect(() => {
+  // setCustomers(getCustomers());
+  // }, []);
 
   const onAddCustomerClick = () => {
     setModel({ action: "ADD", customer: null });

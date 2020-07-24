@@ -1,44 +1,24 @@
-const data = [
-  {
-    id: "1235",
-    firstName: "Janaka",
-    lastName: "Dissanayake",
-    dob: "14/07/1978",
-    created: "20/02/2020",
-    edited: "20/02/2020",
-  },
-  {
-    id: "1235",
-    firstName: "Janaka",
-    lastName: "Dissanayake",
-    dob: "14/07/1978",
-    created: "20/02/2020",
-    edited: "20/02/2020",
-  },
-  {
-    id: "1235",
-    firstName: "Janaka",
-    lastName: "Dissanayake",
-    dob: "14/07/1978",
-    created: "20/02/2020",
-    edited: "20/02/2020",
-  },
-  {
-    id: "1235",
-    firstName: "Janaka",
-    lastName: "Dissanayake",
-    dob: "14/07/1978",
-    created: "20/02/2020",
-    edited: "20/02/2020",
-  },
-];
-
-export const getCustomers = (firstName, LastName) => {
-  return data;
+export const getCustomers = (firstName, lastName) => {
+  return data.map((customer) => {
+    if (firstName && customer.firstName === firstName) {
+      return customer;
+    } else if (lastName && customer.lastName === lastName) {
+      return customer;
+    } else {
+      return customer;
+    }
+  });
 };
 
-export const addCustomers = (customer) => {
-  return data.push(customer);
+export const addCustomer = (form) => {
+  return {
+    id: "1235",
+    firstName: form.firstName,
+    lastName: form.lastName,
+    dob: `${form.day}/${form.month}/${form.year}`,
+    created: Date(),
+    edited: Date(),
+  };
 };
 
 export const updateCustomers = (customer) => {

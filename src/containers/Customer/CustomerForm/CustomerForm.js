@@ -1,7 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { IconTextButton, FieldInput } from "@erm/components";
-import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
+import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
 import { CustomerFormWrapper } from "./CustomerForm.base";
+import { addCustomer } from "@erm/services/customerService";
 const CustomerForm = ({ onComplete }) => {
   const [form, setState] = React.useState({
     firstName: "",
@@ -10,10 +12,16 @@ const CustomerForm = ({ onComplete }) => {
     month: "",
     year: "",
   });
+  const dispatch = useDispatch();
 
   const onCustomerFormSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+
+    dispatch({
+      type: ACTIONS.ADD_CUSTOMER,
+      payload: addCustomer(form),
+    });
+    onComplete();
   };
 
   const updateField = (e) => {
