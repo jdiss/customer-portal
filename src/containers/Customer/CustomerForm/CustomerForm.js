@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IconTextButton, FieldInput } from "@erm/components";
 import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
 import { CustomerFormWrapper } from "./CustomerForm.base";
-import { addCustomer } from "@erm/services/customerService";
+import { addCustomer } from "@erm/state/actions";
+import CustomerAddEditFormFields from "./CustomerAddEditFormFields";
 const CustomerForm = ({ onComplete }) => {
-  const [form, setState] = React.useState({
+  const [form, setForm] = React.useState({
     firstName: "",
     lastName: "",
     day: "",
@@ -13,60 +14,37 @@ const CustomerForm = ({ onComplete }) => {
     year: "",
   });
   const dispatch = useDispatch();
+  const process = useSelector((state) => state.process);
+
+  React.useEffect(() => {
+    if (process.isEdit) {
+      const { customer } = process;
+      const dobList = customer.dob.split("/");
+      setForm({
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        day: dobList[0],
+        month: dobList[1],
+        year: dobList[2],
+      });
+    }
+  }, [process]);
 
   const onCustomerFormSubmit = (e) => {
     e.preventDefault();
-
-    dispatch({
-      type: ACTIONS.ADD_CUSTOMER,
-      payload: addCustomer(form),
-    });
+    dispatch(addCustomer(form));
     onComplete();
-  };
-
-  const updateField = (e) => {
-    setState({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
   };
 
   return (
     <CustomerFormWrapper onSubmit={onCustomerFormSubmit}>
-      <h2>Add New Customer</h2>
-      <FieldInput
-        label="First name"
-        name="firstName"
-        value={form.firstName}
-        onValueChange={updateField}
-      />
-      <FieldInput
-        label="Last name"
-        name="lastName"
-        value={form.lastName}
-        onValueChange={updateField}
-      />
-      <div>
-        <label>Born in</label>
-        <FieldInput
-          label="DD"
-          name="day"
-          value={form.day}
-          onValueChange={updateField}
-        />
-        <FieldInput
-          label="MM"
-          name="month"
-          value={form.month}
-          onValueChange={updateField}
-        />
-        <FieldInput
-          label="YYYY"
-          name="year"
-          value={form.year}
-          onValueChange={updateField}
-        />
-      </div>
+      {process.isAdd && (
+        <CustomerAddEditFormFields title="Add" form={form} setForm={setForm} />
+      )}
+      {process.isEdit && (
+        <CustomerAddEditFormFields title="Edit" form={form} setForm={setForm} />
+      )}
+
       <div>
         <IconTextButton caption="SAVE" icon={ICON_TYPE.SAVE}></IconTextButton>
         <IconTextButton

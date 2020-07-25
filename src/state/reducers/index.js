@@ -9,17 +9,29 @@ const customers = (state = [], action) => {
   }
 };
 
-const customerProcess = (
-  state = { process: { Add: true, edit: false, delete: false } },
-  action
-) => {
+const process = (state = { Add: true, edit: false, delete: false }, action) => {
   switch (action.type) {
     case "ADD":
-      return { process: { Add: true, edit: false, delete: false } };
+      return {
+        isAdd: true,
+        isEdit: false,
+        isDelete: false,
+        customer: action.payload,
+      };
     case "EDIT":
-      return { process: { Add: false, edit: true, delete: false } };
+      return {
+        isAdd: false,
+        isEdit: true,
+        isDelete: false,
+        customer: action.payload,
+      };
     case "DELETE":
-      return { process: { Add: false, edit: false, delete: true } };
+      return {
+        isAdd: false,
+        isEdit: false,
+        isDelete: true,
+        customer: action.payload,
+      };
     default:
       return state;
   }
@@ -27,5 +39,5 @@ const customerProcess = (
 
 export default combineReducers({
   customers,
-  customerProcess,
+  process,
 });

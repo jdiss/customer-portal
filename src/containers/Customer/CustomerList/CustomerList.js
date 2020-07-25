@@ -11,29 +11,24 @@ import { useModal } from "@erm/hooks";
 import { FunctionBar, ListHeader } from "./CustomerList.base";
 import { CustomerForm } from "@erm/containers";
 import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
-import { getCustomers } from "@erm/services/customerService";
 
 const CustomerList = () => {
   const [model, setModel] = React.useState("ADD");
-  //const [customers, setCustomers] = React.useState([]);
   const { isShowing, toggle } = useModal();
   const customers = useSelector((state) => state.customers);
   const dispatch = useDispatch();
 
-  // React.useEffect(() => {
-  // setCustomers(getCustomers());
-  // }, []);
-
   const onAddCustomerClick = () => {
-    dispatch({ type: "ADD" });
+    dispatch({ type: ACTIONS.ADD });
     toggle();
   };
   const onEditCustomerClick = (customer) => {
-    dispatch({ type: "EDIT" });
+    dispatch({ type: ACTIONS.EDIT, payload: customer });
     toggle();
   };
   const onDeleteCustomerClick = (customer) => {
-    dispatch({ type: "DELETE" });
+    dispatch({ type: ACTIONS.DELETE, payload: customer });
+
     toggle();
   };
   return (

@@ -12,7 +12,7 @@ export const getCustomers = (firstName, lastName) => {
   });
 };
 
-export const addCustomer = (form) => {
+export const createNewCustomer = (form) => {
   return {
     id: getRandomId(),
     firstName: form.firstName,
