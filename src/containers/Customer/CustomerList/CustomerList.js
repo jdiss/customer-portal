@@ -9,6 +9,7 @@ import {
 } from "@erm/components";
 import { useModal } from "@erm/hooks";
 import { FunctionBar, ListHeader } from "./CustomerList.base";
+import { setNameTag } from "@erm/utils/helpers";
 import { CustomerForm } from "@erm/containers";
 import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
 
@@ -28,7 +29,6 @@ const CustomerList = () => {
   };
   const onDeleteCustomerClick = (customer) => {
     dispatch({ type: ACTIONS.DELETE, payload: customer });
-
     toggle();
   };
   return (
@@ -53,7 +53,10 @@ const CustomerList = () => {
         <span>Last edited on</span>
       </ListHeader>
       {customers.map((customer, index) => (
-        <RowItem tag={"JD"} key={index}>
+        <RowItem
+          tag={setNameTag(`${customer.firstName} ${customer.lastName}`)}
+          key={index}
+        >
           <span>#.{customer.id}</span>
           <h2>{`${customer.firstName} ${customer.lastName}`}</h2>
           <span>{customer.dob}</span>
