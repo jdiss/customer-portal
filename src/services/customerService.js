@@ -23,6 +23,17 @@ export const createNewCustomer = (form) => {
   };
 };
 
+export const updateCustomer = (customer, form) => {
+  return {
+    id: customer.id,
+    firstName: form.firstName,
+    lastName: form.lastName,
+    dob: `${form.day}/${form.month}/${form.year}`,
+    created: customer.created,
+    edited: getCurrentDay(),
+  };
+};
+
 export const updateCustomers = (customer) => {
   const newData = data.map((current) => {
     if (current.id != customer.id) {

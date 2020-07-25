@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IconTextButton, FieldInput } from "@erm/components";
 import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
 import { CustomerFormWrapper } from "./CustomerForm.base";
-import { addCustomer } from "@erm/state/actions";
+import { addCustomer, editCustomer } from "@erm/state/actions";
 import CustomerAddEditFormFields from "./CustomerAddEditFormFields";
 const CustomerForm = ({ onComplete }) => {
   const [form, setForm] = React.useState({
@@ -32,7 +32,12 @@ const CustomerForm = ({ onComplete }) => {
 
   const onCustomerFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(addCustomer(form));
+    if (process.isAdd) {
+      dispatch(addCustomer(form));
+    } else if (process.isEdit) {
+      dispatch(editCustomer(process.customer, form));
+    }
+
     onComplete();
   };
 
