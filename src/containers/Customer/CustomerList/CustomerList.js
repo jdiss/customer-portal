@@ -31,12 +31,17 @@ const CustomerList = () => {
     dispatch({ type: ACTIONS.DELETE, payload: customer });
     toggle();
   };
+
+  const onSearchChange = (search) => {
+    console.log(search);
+  };
+
   return (
     <div>
       <FunctionBar>
         <IconButton icon={ICON_TYPE.USER} />
         <h2>Customer List</h2>
-        <SearchFieldInput />
+        <SearchFieldInput onSearchChange={onSearchChange} />
         <IconButton icon={ICON_TYPE.LIST} />
         <IconButton icon={ICON_TYPE.BOX} />
         <IconTextButton

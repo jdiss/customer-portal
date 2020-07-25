@@ -3,7 +3,7 @@ import { Icon } from "@erm/components";
 import { SearchField } from "./SearchFieldInput.base";
 import { ICON_TYPE, ICON_SIZE, ICON_COLOR } from "@erm/utils/constant";
 
-const SearchFieldInput = ({ label }) => {
+const SearchFieldInput = ({ onSearchChange }) => {
   const [value, setValue] = React.useState("");
   return (
     <SearchField>
@@ -16,7 +16,16 @@ const SearchFieldInput = ({ label }) => {
         className="searchBox"
         type="search"
         name="search"
+        value={value}
         placeholder="Search..."
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
+            onSearchChange(value);
+          }
+        }}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
       />
     </SearchField>
   );
