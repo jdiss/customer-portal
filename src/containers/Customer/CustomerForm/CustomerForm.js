@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IconTextButton, FieldInput } from "@erm/components";
-import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
+import { IconTextButton } from "@erm/components";
+import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
 import { CustomerFormWrapper } from "./CustomerForm.base";
-import { addCustomer, editCustomer } from "@erm/state/actions";
+import { addCustomer, editCustomer, removeCustomer } from "@erm/state/actions";
 import CustomerAddEditFormFields from "./CustomerAddEditFormFields";
+import CustomerDeleteForm from "./CustomerDeleteForm";
 const CustomerForm = ({ onComplete }) => {
   const [form, setForm] = React.useState({
     firstName: "",
@@ -36,6 +37,8 @@ const CustomerForm = ({ onComplete }) => {
       dispatch(addCustomer(form));
     } else if (process.isEdit) {
       dispatch(editCustomer(process.customer, form));
+    } else if (process.isDelete) {
+      dispatch(removeCustomer(process.customer));
     }
 
     onComplete();
@@ -49,9 +52,12 @@ const CustomerForm = ({ onComplete }) => {
       {process.isEdit && (
         <CustomerAddEditFormFields title="Edit" form={form} setForm={setForm} />
       )}
-
-      <div>
-        <IconTextButton caption="SAVE" icon={ICON_TYPE.SAVE}></IconTextButton>
+      {process.isDelete && <CustomerDeleteForm customer={process.customer} />}
+      <div className="functions">
+        <IconTextButton
+          caption={process.isDelete ? "YES" : "SAVE"}
+          icon={process.isDelete ? ICON_TYPE.CHECK : ICON_TYPE.SAVE}
+        ></IconTextButton>
         <IconTextButton
           caption="CANCEL"
           name="CANCEL"

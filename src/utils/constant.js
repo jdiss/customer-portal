@@ -9,6 +9,7 @@ export const ICON_TYPE = {
   LIST: 8,
   CLOSE: 9,
   SEARCH: 10,
+  CHECK: 11,
 };
 
 export const BUTTON_TYPE = {

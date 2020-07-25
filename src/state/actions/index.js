@@ -1,6 +1,7 @@
 import {
   createNewCustomer,
   updateCustomer,
+  deleteCustomer,
 } from "@erm/services/customerService";
 import { ACTIONS } from "@erm/utils/constant";
 
@@ -12,6 +13,11 @@ export const addCustomer = (customer) => ({
 export const editCustomer = (customer, form) => ({
   type: ACTIONS.UPDATE_CUSTOMER,
   payload: updateCustomer(customer, form),
+});
+
+export const removeCustomer = (customer, form) => ({
+  type: ACTIONS.DELETE_CUSTOMER,
+  payload: deleteCustomer(customer, form),
 });
 
 export const startCustomerAdd = () => ({

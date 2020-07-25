@@ -12,8 +12,10 @@ const customers = (state = [], action) => {
         } else {
           return customer;
         }
-        return customer;
       });
+    case ACTIONS.DELETE_CUSTOMER:
+      let index = state.map((x) => x.customer).indexOf(action.payload.id);
+      return state.slice(0, index).concat(state.slice(index + 1));
     default:
       return state;
   }

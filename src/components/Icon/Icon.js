@@ -13,6 +13,7 @@ import {
   faSearch,
   faUserPlus,
   faTrashAlt,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { Frame } from "./Icon.base";
 import { ICON_TYPE } from "@erm/utils/constant";
@@ -50,6 +51,9 @@ const Icon = ({ type, size, color }) => {
         break;
       case ICON_TYPE.SEARCH:
         icon = faSearch;
+        break;
+      case ICON_TYPE.CHECK:
+        icon = faCheck;
         break;
       default:
         icon = faQuestion;

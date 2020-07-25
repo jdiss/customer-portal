@@ -33,6 +33,9 @@ export const updateCustomer = (customer, form) => {
     edited: getCurrentDay(),
   };
 };
+export const deleteCustomer = (customer) => {
+  return customer.id;
+};
 
 export const updateCustomers = (customer) => {
   const newData = data.map((current) => {
