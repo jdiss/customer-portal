@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
             --dark-shade-color: #bbb7b7;
             --main-font-family: Nunito;
             --high-color: #F15A22;
+            --invalid-color:#F05669;
             @media (min-width: 700px) {
                 --spacing-multiplier: 1.5;
             }

@@ -7,6 +7,7 @@ import { addCustomer, editCustomer, removeCustomer } from "@erm/state/actions";
 import CustomerAddEditFormFields from "./CustomerAddEditFormFields";
 import CustomerDeleteForm from "./CustomerDeleteForm";
 const CustomerForm = ({ onComplete }) => {
+  const [inValid, setInValid] = React.useState(false);
   const [form, setForm] = React.useState({
     firstName: "",
     lastName: "",
@@ -31,17 +32,35 @@ const CustomerForm = ({ onComplete }) => {
     }
   }, [process]);
 
+  const isValid = (form) => {
+    if (form.firstName && form.day && form.month && form.year) {
+      return true;
+    }
+    return false;
+  };
   const onCustomerFormSubmit = (e) => {
     e.preventDefault();
-    if (process.isAdd) {
-      dispatch(addCustomer(form));
-    } else if (process.isEdit) {
-      dispatch(editCustomer(process.customer, form));
-    } else if (process.isDelete) {
-      dispatch(removeCustomer(process.customer));
+    setInValid(false);
+    if (form) {
+      if (process.isAdd) {
+        if (isValid(form)) {
+          dispatch(addCustomer(form));
+          onComplete();
+        } else {
+          setInValid(true);
+        }
+      } else if (process.isEdit) {
+        if (isValid(form)) {
+          dispatch(editCustomer(process.customer, form));
+          onComplete();
+        } else {
+          setInValid(true);
+        }
+      } else if (process.isDelete) {
+        dispatch(removeCustomer(process.customer));
+        onComplete();
+      }
     }
-
-    onComplete();
   };
 
   return (
@@ -65,6 +84,7 @@ const CustomerForm = ({ onComplete }) => {
           type={BUTTON_TYPE.SECONDARY}
           onClick={onComplete}
         ></IconTextButton>
+        {inValid && <div>Required Field Cannot be empty</div>}
       </div>
     </CustomerFormWrapper>
   );

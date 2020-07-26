@@ -44,6 +44,12 @@ export const CustomerFormWrapper = styled.form`
     & > button:nth-of-type(2) {
       grid-column: 3;
     }
+
+    & div:last-child {
+      grid-column: 1/-1;
+      color: var(--invalid-color);
+      font-size: 1em;
+    }
   }
 `;
 

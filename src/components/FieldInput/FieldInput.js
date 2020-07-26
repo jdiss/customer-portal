@@ -1,7 +1,13 @@
 import React from "react";
 import { Field } from "./FieldInput.base";
 
-const FieldInput = ({ label, name, value = "", onValueChange }) => {
+const FieldInput = ({
+  label,
+  name,
+  value = "",
+  onValueChange,
+  type = "text",
+}) => {
   return (
     <Field>
       <input
@@ -9,7 +15,7 @@ const FieldInput = ({ label, name, value = "", onValueChange }) => {
         autoCorrect="off"
         autoCapitalize="off"
         spellCheck="false"
-        type="text"
+        type={type}
         name={name}
         id={name}
         className={value ? "hasInput" : ""}

@@ -12,7 +12,7 @@ const CustomerAddEditFormFields = ({ title, form, setForm }) => {
     <>
       <h2>{`${title} New Customer`}</h2>
       <FieldInput
-        label="First name"
+        label="First name*"
         name="firstName"
         value={form.firstName}
         onValueChange={updateField}
@@ -26,19 +26,22 @@ const CustomerAddEditFormFields = ({ title, form, setForm }) => {
       <div>
         <label>Born in</label>
         <FieldInput
-          label="DD"
+          type="number"
+          label="DD*"
           name="day"
           value={form.day}
           onValueChange={updateField}
         />
         <FieldInput
-          label="MM"
+          type="number"
+          label="MM*"
           name="month"
           value={form.month}
           onValueChange={updateField}
         />
         <FieldInput
-          label="YYYY"
+          type="number"
+          label="YYYY*"
           name="year"
           value={form.year}
           onValueChange={updateField}
