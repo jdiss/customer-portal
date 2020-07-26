@@ -18,13 +18,9 @@ const SearchFieldInput = ({ onSearchChange }) => {
         name="search"
         value={value}
         placeholder="Search..."
-        onKeyPress={(event) => {
-          if (event.key === "Enter") {
-            onSearchChange(value);
-          }
-        }}
         onChange={(e) => {
           setValue(e.target.value);
+          onSearchChange(e.target.value);
         }}
       />
     </SearchField>

@@ -26,11 +26,11 @@ export const startCustomerAdd = () => ({
 });
 
 export const startCustomerEdit = (customer) => ({
-  type: ACTIONS.ADD,
+  type: ACTIONS.EDIT,
   payload: customer,
 });
 
 export const startCustomerDelete = (customer) => ({
-  type: ACTIONS.ADD,
+  type: ACTIONS.DELETE,
   payload: customer,
 });

@@ -1,7 +1,6 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  RowItem,
   IconTextButton,
   IconButton,
   SearchFieldInput,
@@ -9,31 +8,35 @@ import {
 } from "@erm/components";
 import { useModal } from "@erm/hooks";
 import { FunctionBar, ListHeader } from "./CustomerList.base";
-import { setNameTag } from "@erm/utils/helpers";
 import { CustomerForm } from "@erm/containers";
-import { ICON_TYPE, BUTTON_TYPE, ACTIONS } from "@erm/utils/constant";
+import {
+  startCustomerAdd,
+  startCustomerEdit,
+  startCustomerDelete,
+} from "@erm/state/actions";
+import { ICON_TYPE } from "@erm/utils/constant";
+import CustomerListData from "./CustomerListData";
 
 const CustomerList = () => {
-  const [model, setModel] = React.useState("ADD");
   const { isShowing, toggle } = useModal();
-  const customers = useSelector((state) => state.customers);
   const dispatch = useDispatch();
+  const [query, setQuery] = React.useState("");
 
   const onAddCustomerClick = () => {
-    dispatch({ type: ACTIONS.ADD });
+    dispatch(startCustomerAdd());
     toggle();
   };
   const onEditCustomerClick = (customer) => {
-    dispatch({ type: ACTIONS.EDIT, payload: customer });
+    dispatch(startCustomerEdit(customer));
     toggle();
   };
   const onDeleteCustomerClick = (customer) => {
-    dispatch({ type: ACTIONS.DELETE, payload: customer });
+    dispatch(startCustomerDelete(customer));
     toggle();
   };
 
   const onSearchChange = (search) => {
-    console.log(search);
+    setQuery(search);
   };
 
   return (
@@ -57,29 +60,11 @@ const CustomerList = () => {
         <span>Created on</span>
         <span>Last edited on</span>
       </ListHeader>
-      {customers.map((customer, index) => (
-        <RowItem
-          tag={setNameTag(`${customer.firstName} ${customer.lastName}`)}
-          key={index}
-        >
-          <span>#.{customer.id}</span>
-          <h2>{`${customer.firstName} ${customer.lastName}`}</h2>
-          <span>{customer.dob}</span>
-          <span>{customer.created}</span>
-          <span>{customer.edited}</span>
-          <IconTextButton
-            caption="EDIT"
-            icon={ICON_TYPE.EDIT_USER}
-            onClick={() => onEditCustomerClick(customer)}
-          ></IconTextButton>
-          <IconTextButton
-            caption="DELETE"
-            icon={ICON_TYPE.DELETE}
-            type={BUTTON_TYPE.SECONDARY}
-            onClick={() => onDeleteCustomerClick(customer)}
-          ></IconTextButton>
-        </RowItem>
-      ))}
+      <CustomerListData
+        query={query}
+        onEdit={onEditCustomerClick}
+        onDelete={onDeleteCustomerClick}
+      />
       <Modal isShowing={isShowing}>
         <CustomerForm onComplete={toggle} />
       </Modal>
