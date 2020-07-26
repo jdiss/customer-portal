@@ -45,7 +45,7 @@ const CustomerList = () => {
         <IconButton icon={ICON_TYPE.USER} />
         <h2>Customer List</h2>
         <SearchFieldInput onSearchChange={onSearchChange} />
-        <IconButton icon={ICON_TYPE.LIST} />
+        <IconButton icon={ICON_TYPE.LIST} active={true} />
         <IconButton icon={ICON_TYPE.BOX} />
         <IconTextButton
           caption="ADD NEW CUSTOMER"

@@ -12,6 +12,7 @@ export const Button = styled.button`
 
   & span {
     place-self: center;
+    color: ${(props) => (props.active ? "var(--active-color)" : "")};
   }
 
   &:hover span {
