@@ -41,4 +41,9 @@ export const ListHeader = styled(ItemFrame)`
   }
 `;
 
-export const RowList = styled.div``;
+export const EmptyList = styled.div`
+  text-align: center;
+  margin: 10% auto;
+  color: var(--high-color);
+  font-size: 1.25em;
+`;

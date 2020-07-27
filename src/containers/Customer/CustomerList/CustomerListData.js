@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { setNameTag } from "@erm/utils/helpers";
 import { RowItem, IconTextButton } from "@erm/components";
 import { ICON_TYPE, BUTTON_TYPE } from "@erm/utils/constant";
-
+import { EmptyList } from "./CustomerList.base";
 const CustomerListData = ({ query = "", onEdit, onDelete }) => {
   let customers = useSelector((state) => {
     if (query) {
@@ -16,6 +16,14 @@ const CustomerListData = ({ query = "", onEdit, onDelete }) => {
     }
     return state.customers;
   });
+
+  if (customers.length === 0) {
+    return (
+      <EmptyList>
+        No Customers found please refine your search or add new customer
+      </EmptyList>
+    );
+  }
 
   return customers.map((customer, index) => (
     <RowItem
